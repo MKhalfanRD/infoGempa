@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 6 JS_ MKhalfanRamaDarmawan</title>
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: url(https://lh4.googleusercontent.com/proxy/9Z8yTQoTsrOrmoX76TN1p-cV6Wio0z9UIH6nTBluLPuv8C1JJVxB4TVCujzGHHgJBRcJJeW8H96xLQAbIaNdbBbIbit_uDEV8uxO0ScJ1TeCHsHnIr10OuNvnhd3Z_gW4ZxdYrmyAWdcd38ZzfYJ8G4XPJ0sLMWB6sQFbAbMhMvYqLCiHvH8h75H_TrGeteXL3WUSrTFuMeYD8m9OULV24Q=s0-d);
+        }
+        table{
+            width: 90%;
+        }
+
+        th {
+            background-color: rgb(212, 121, 121);
+        }
+        td{
+            font-size: 14pt;
+            text-align: center;
+        }
+        tbody {
+            background-color: rgb(225, 202, 202);
+        }
+        h1,h2{
+            padding: 1%;
+            text-align: center;
+            color: rgb(255, 2, 2);
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <table align="center" cellpadding="10">
+        <thead> 
+            <h1>
+                BERIKUT DAFTAR INFORMASI GEMPA YANG TERJADI DI BEBERAPA LOKASI
+            </h1>
+            <tr>
+                <th>No</th>
+                <th>Lokasi</th>
+                <th>Kekuatan</th>
+                <th>Dampak</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                class Gempa {
+                    //konstruktor
+                    constructor(lokasi, skala) {
+                        this.lokasi = lokasi;
+                        this.skala = skala;
+                    }
+                    //method
+                    dampak() {
+                        let dampakGempa = "";
+                        if (this.skala <= 2) {
+                            dampakGempa = "Gempa tidak terasa"
+                        }
+                        else if (this.skala > 2 && this.skala <= 4) {
+                            dampakGempa = "Bangunan reta-retak";
+                        }
+                        else if (this.skala > 4 && this.skala <= 6) {
+                            dampakGempa = "Bangunan roboh";
+                        }
+                        else {
+                            dampakGempa = "Selain bangunan roboh & berpotensi tsunami";
+                        }
+                        return dampakGempa;
+                    }
+                }
+
+
+                //membuat instance objek
+                let g1 = new Gempa('Lampung', 1);
+                let g2 = new Gempa('Palembang', 2);
+                let g3 = new Gempa('Kediri', 3);
+                let g4 = new Gempa('Kotabumi', 4);
+                let g5 = new Gempa('Terbanggi Besar', 5);
+                let g6 = new Gempa('Suoh', 6);
+                let g7 = new Gempa('Sekincau', 7);
+                let g8 = new Gempa('Sukajaya', 8);
+
+                let gp = [g1, g2, g3, g4, g5, g6, g7, g8]
+
+                let i = 1;
+                for (let g of gp) {
+                    document.write(`
+                    <tr>
+                        <td> ${i} </td>
+                        <td> ${g.lokasi} </td>
+                        <td> ${g.skala} Skala Ritcher </td>
+                        <td> ${g.dampak()} </td>
+                    </tr>
+                    `)
+                    i++
+                }
+            </script>
+        </tbody>
+        <tfoot>
+            <h2>
+                HARAP MENCARI TEMPAT YANG JAUH DARI BANGUNAN-BANGUNAN TINGGI DIKARENAKAN BERPOTENSI ROBOH MENIMPAH YANG ADA DI BAWAHNYA
+            </h2>
+        </tfoot>
+    </table>
+</body>
+
+</html>
